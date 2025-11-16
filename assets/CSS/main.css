@@ -1,0 +1,108 @@
+/* Global variables. */ 
+:root {
+    /* Set sans-serif & mono fonts */
+    --sans-font: "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+
+    /* Boxen und Kästen */
+    --standard-border-radius: 5px;
+    --border-width: 1px;
+
+    /* Dark theme */
+    --bg: #292929;
+    --bg-header: #222222;
+    --bg-hover: #662900;
+    --text: #dcdcdc;
+    --text-alt: #7a7a7a;
+    --accent: #ff4c4c;
+    --accent-hover: #ffe099;
+}
+
+
+.nav {                  /* für das Menü */
+    display: flex;      /*  .nav ist jetzt ein  Flex-Container */
+    justify-content: space-between;  /* Verteilt die Items entlang der Hauptachse (hier horizontal) mit dem freien Platz *zwischen* den Items. */
+    align-items: center;             /* Richtet die Items senkrecht zur Hauptachse (hier vertikal) zentriert aus */
+    gap: 1rem;                       /* Abstand zwischen den Flex-Items. 1rem entspricht der Root-Schriftgröße */
+    padding: 0.5rem 1rem;            /* Innenabstand des .nav-Containers: oben/unten */
+    border-bottom: 2px #646464 solid; /* Linie unterhalb des Menüs */
+}
+.nav a { text-decoration: none; } /* Entfernt die Standard-Unterstreichung der Links im Nav*/
+
+@media (max-width: 600px) {    /* für kleines Handy Display */
+  .nav {
+    flex-direction: column;    /* statt Reihe → Spalte */
+    align-items: flex-start;   /* Spalten linksbündig */
+    gap: 0.5rem;               /*Etwas kleinerer Abstand zwischen den untereinander stehenden Links */
+  }
+}
+
+
+body {
+    color: var(--text); 
+    background-color: var(--bg);
+    font-family: var(--sans-font) ;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    display: grid;
+    grid-template-columns: 1fr min(45rem, 90%) 1fr;
+    margin: 0;
+}
+body > * {
+    grid-column: 2;
+}
+
+/* Bilder über ganze Breite. */
+img{
+    width: 100%;
+}
+
+H1, H2, H3, H4 {
+    margin-bottom: 2px; /* Abstand Überschrift -- Absatz */
+    color: var(--accent);
+}
+
+H2 {
+    font-size: 1.2em; /* ein bisschen kleiner */
+    font-weight: bold;
+}
+
+/* Zitate formatieren*/
+blockquote {
+    margin: 0.1em 0 0.1em 0.8em;
+    padding-left: 0.6em;
+    border-left: 3px solid var(--accent-hover);  /* Links neben dem Zitat ein vertikaler Strich */
+    color: var(--accent-hover);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    display: inline-block;
+    transition: transform 0.5s;
+    text-decoration: underline; /* optional: Unterstreichen beim Hovern */
+}
+a:hover {
+    color: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+/*  Tabellen (alle) */
+td:first-child,     /* erste <td> in jeder Tabellenzeile <tr> */
+th:first-child      /* erste <th> in der Kopfzeile, falls vorhanden <th> */
+
+{  
+    color: var(--accent-hover);       /* Textfarbe */
+    font-weight: bold;                /* fett */
+}
+
+/* Sozial media */
+.social-links a img {
+    width: 45px;
+    height: 45px;
+    /*filter: invert(13%) sepia(75%) saturate(5400%) hue-rotate(340deg) brightness(90%) contrast(95%);*/
+    filter:  invert(70%) 
+}
+
+.impressum {
+  color: var(--text-alt); 
+}
